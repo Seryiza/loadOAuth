@@ -1,5 +1,5 @@
 # Load OAuth
-Simple Go package to get/set oauth2 tokens/configs for unit-tests
+Simple Go package to get oauth2 tokens/configs and to set it (if changed). I use it for unit-tests.
 
 # Dependencies
 * [github.com/golang/oauth2](https://github.com/golang/oauth2)
