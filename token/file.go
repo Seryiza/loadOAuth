@@ -1,4 +1,4 @@
-package loadToken
+package token
 
 import (
 	"encoding/json"
