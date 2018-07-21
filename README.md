@@ -1,4 +1,4 @@
-# loadToken
+# Load OAuth
 Simple Go package for get/set oauth2 tokens/configs for unit-tests
 
 # Dependencies
