@@ -2,6 +2,7 @@ package conf
 
 import (
 	"encoding/json"
+	"errors"
 	"os"
 
 	"golang.org/x/oauth2"
@@ -13,6 +14,10 @@ const (
 
 func FromFile(envPrefix string) (*oauth2.Config, error) {
 	filename := getFilename(envPrefix)
+	if filename == "" {
+		return nil, errors.New("Envirement variable is empty or not exists")
+	}
+
 	configFile, err := os.Open(filename)
 	if err != nil {
 		return nil, err

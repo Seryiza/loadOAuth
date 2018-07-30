@@ -31,6 +31,9 @@ func FromFile(envPrefix string) (*oauth2.Token, error) {
 
 func ToFile(envPrefix string, oauthClient *http.Client) {
 	filename := getFilename(envPrefix)
+	if filename == "" {
+		return
+	}
 
 	// todo: сделать сравнение текущего токена с тем, что лежит в файле во
 	//       избежание бесполезной/неудачной записи
