@@ -2,7 +2,6 @@ package token
 
 import (
 	"encoding/json"
-	"errors"
 	"net/http"
 	"os"
 
@@ -25,10 +24,6 @@ func FromFile(envPrefix string) (*oauth2.Token, error) {
 	jd := json.NewDecoder(tokenFile)
 	if err = jd.Decode(tok); err != nil {
 		return nil, err
-	}
-
-	if !tok.Valid() {
-		return nil, errors.New("Token is not valid")
 	}
 
 	return tok, nil
