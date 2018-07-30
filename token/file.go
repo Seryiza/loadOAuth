@@ -2,6 +2,7 @@ package token
 
 import (
 	"encoding/json"
+	"errors"
 	"net/http"
 	"os"
 
@@ -14,6 +15,10 @@ const (
 
 func FromFile(envPrefix string) (*oauth2.Token, error) {
 	filename := getFilename(envPrefix)
+	if filename == "" {
+		return nil, errors.New("Envirement variable is empty or not exists")
+	}
+
 	tokenFile, err := os.Open(filename)
 	if err != nil {
 		return nil, err
